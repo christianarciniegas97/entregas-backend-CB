@@ -1,0 +1,19 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon apps.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-modules": "^1.0.1",
+    "nodemon": "^2.0.22",
+    "router": "^1.3.8",
+    "uuid": "^9.0.0"
+  }
+}
