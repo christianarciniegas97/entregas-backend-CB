@@ -1,12 +1,14 @@
-import { Router } from "express";
+import  { Router } from "express";
 import ProductManager from "../ProductManager.js"
 
 const newpr = new ProductManager("./products.json")
 const router = Router();
 
+
+
 //GETS
-router.get('/',(req,res) =>{
-    const tproduct = newpr.getProducts()
+router.get('/', async (req,res) =>{
+    const tproduct = await newpr.getProducts()
     res.send({tproduct})
 })
 router.get('/:pid', async (req,res) => {
@@ -44,9 +46,9 @@ router.post('/',(req,res)=>{
   res.send({status:"success"})
 })
 //PUT 
-router.put('/:pid', (req, res) => {  
+router.put('/:pid', async (req, res) => {  
   let id = req.params.pid ;
-  const upID = newpr.getProducts();
+  const upID =  await newpr.getProducts();
 
   let findid = upID.find(upID => upID.id == id);
   if (!findid) {    
@@ -65,17 +67,22 @@ router.put('/:pid', (req, res) => {
 });
 
 //Delet 
-router.delete('/:pid', (req, res) => {
-  let id = req.params.pid;  
-  const upIDD = newpr.getProducts();
-
-  let prodid = upIDD.find(prodid => prodid.id == id);  
-  if (!prodid) {    
+router.delete('/:pid', async (req, res) => {
+  const id = parseInt(req.params.pid);
+  
+  const bd = await newpr.getProducts();
+  
+  let product = bd.findIndex(bd => bd.id === id)
+  
+  if (!product === - 1) {    
     res.status(404).send({ status: "error", message: "product not found" });    
     return;  
-  }  
-  upIDD = upIDD.filter(prodid => prodid.id != id);
-  res.status(200).send({ status: "success", message: "product deleted" });
+  } else{
+    bd.splice(product,1)
+  }
+ const bdd =  bd.filter(product => product.id != id);
+ return res.status(200).send({bdd, status : "success", mensaje : "product delete"});
+  
 });
 
 export default router;

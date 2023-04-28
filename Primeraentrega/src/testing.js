@@ -1,4 +1,4 @@
-const ProductManager = require('./ProductManager');
+import ProductManager from "./ProductManager";
 
 const nproduct = new ProductManager("./products.json");
 
@@ -64,12 +64,9 @@ const nproduct = new ProductManager("./products.json");
         price:  2200,
         thumbnail: 'not url',
         stock:  20
-    };
-      
+    };   
         
-      
-        
-        
+    /*
     await nproduct.addProduct(newProduct);
     await nproduct.addProduct(twoitem);
     await nproduct.addProduct(threeitem);
@@ -87,10 +84,10 @@ const nproduct = new ProductManager("./products.json");
 
     let modificar = await nproduct.updateProduct(2,{title:"iphone"} );
     console.log( await nproduct.getProducts(modificar))
-
-     await nproduct.deleteProduct()
+    */
+     await nproduct.deleteProduct("bad775c3-4430-4dc6-8400-5ea303e0c28e")
     
  };
     
 
- createrproduct()
+// createrproduct()

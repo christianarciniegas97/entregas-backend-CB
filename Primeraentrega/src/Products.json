@@ -20,5 +20,16 @@
         "category": "apple",
         "status": true,
         "id": "4f9841b1-e55a-4642-bbc7-ad2668ab78bf"
+    },
+    {
+        "code": 3,
+        "title": "iphone 13",
+        "description": "this phone is amazing",
+        "price": 900,
+        "thumbnail": "not url",
+        "stock": 520,
+        "category": "apple",
+        "status": true,
+        "id": "a7f86626-13ce-4479-a255-2f7179d4aade"
     }
 ]
