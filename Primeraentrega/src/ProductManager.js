@@ -50,9 +50,10 @@ async addProduct(product){
 
 async getProductById(id){
     
-    await fs.promises.readFile(this.path, 'utf-8')
+    const idget = await fs.promises.readFile(this.path, 'utf-8')
+    const psidget = JSON.parse(idget)
 
-    let productid = this.products.find( e => e.id ===  id );
+    let productid = psidget.find( e => e.id ===  id );
 
     if(!productid){
         console.error(`product with ${id}, not found`);
@@ -71,7 +72,7 @@ async updateProduct(productId, field) {
     try {
         const contenido = await fs.promises.readFile(this.path, "utf-8");
         const product = JSON.parse(contenido);
-        const SearchedId = product.find((e) => e.id === productId);
+        const SearchedId = product.find((e) => e.id == productId);
         
         if (!SearchedId) {
         console.log('Id not found');
@@ -89,21 +90,21 @@ async updateProduct(productId, field) {
         }
     }
 
-async deleteProduct(productid){
+async deleteProduct(id){
 
     try{
-        const dcontent = await fs.promises.readFile(this.path,"utf-8")
+        const dproduct = await fs.promises.readFile(this.path,'utf-8');
+        const psPd = JSON.parse(dproduct);
+        let idS = psPd.find( e => e.id == id)
         
-        const productsd = JSON.parse(dcontent);
-    
-        let searchidd = productsd.findIndex(e => e.id === productid)
-        if(searchidd === -1){
-            console.log("id not found, no is posible delete without id valid")
-        }else{
-            productsd.splice(searchidd, 2)
-            await fs.promises.writeFile(this.path, JSON.stringify(productsd))
-            console.log("product delete")
+        if(!idS){
+            return console.log("id not found, no is posible delete without id valid")
         }
+        const ddproduct = psPd.filter(prod => prod.id != idS.id)
+        await fs.promises.writeFile(this.path, JSON.stringify(ddproduct))
+        console.log("product delete")
+        
+
     }catch (error) {
         console.log(error);
         }

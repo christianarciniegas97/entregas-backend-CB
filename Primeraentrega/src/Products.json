@@ -1,35 +1,24 @@
 [
     {
-        "code": 1,
-        "title": "iphone 12",
-        "description": "phone red",
-        "price": 8000,
-        "thumbnail": "not url",
-        "stock": 30,
-        "category": "apple",
-        "status": true,
-        "id": "bad775c3-4430-4dc6-8400-5ea303e0c28e"
-    },
-    {
-        "code": 2,
-        "title": "iphone 12",
+        "code": 553,
+        "title": "iphone xr plus",
         "description": "this phone is amazing",
         "price": 500,
         "thumbnail": "not url",
         "stock": 500,
         "category": "apple",
         "status": true,
-        "id": "4f9841b1-e55a-4642-bbc7-ad2668ab78bf"
+        "id": "455f4f60-f746-4cb0-bdd2-224f56eee2a0"
     },
     {
-        "code": 3,
-        "title": "iphone 13",
+        "code": 11,
+        "title": "iphone tito",
         "description": "this phone is amazing",
-        "price": 900,
+        "price": 500,
         "thumbnail": "not url",
-        "stock": 520,
+        "stock": 500,
         "category": "apple",
         "status": true,
-        "id": "a7f86626-13ce-4479-a255-2f7179d4aade"
+        "id": "d3196e24-b02a-4978-af00-d62c545090ee"
     }
 ]
